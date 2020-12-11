@@ -7,6 +7,7 @@
   will-change: transform, opacity;
   top: 0;
   left: 0;
+  border-radius: 4px;
 
   &--showed {
     opacity: 1;
@@ -38,7 +39,6 @@
   &__toggler-and-button-wrapper {
     display: flex;
     width: 100%;
-    padding: 0 6px;
   }
 
   &__buttons {
@@ -50,11 +50,10 @@
 
   &__dropdown {
     display: inline-flex;
-    height: var(--toolbar-buttons-size);
     padding: 0 9px 0 10px;
-    margin: 0 6px 0 -6px;
     align-items: center;
     cursor: pointer;
+    border-radius: 4px 0 0 4px;
     border-right: 1px solid var(--color-gray-border);
 
     &:hover {
@@ -70,13 +69,10 @@
       font-weight: 500;
       font-size: 14px;
 
-      svg {
-        height: 12px;
-      }
     }
 
     .icon--toggler-down {
-      margin-left: 4px;
+      margin-left: 8px;
     }
   }
 
@@ -91,17 +87,8 @@
   @apply --toolbar-button;
   border-radius: 0;
   line-height: normal;
-  width: auto;
-  padding: 0 5px !important;
-  min-width: 24px;
 
-  &:not(:last-of-type) {
-    margin-right: 2px;
-  }
-
-  .icon {
-    height: 12px;
-  }
+  &:last-child { border-radius: 0 4px 4px 0; }
 
   &--link {
     .icon--unlink {

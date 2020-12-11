@@ -33,6 +33,11 @@ export default class DeleteTune implements BlockTune {
   private needConfirmation: boolean;
 
   /**
+   * is Confirmation shown
+   */
+ private isConfirmationShown: boolean;
+
+  /**
    * set false confirmation state
    */
   private readonly resetConfirmation: () => void;
@@ -93,6 +98,8 @@ export default class DeleteTune implements BlockTune {
        * When toolbar block settings is closed but block deletion is not confirmed,
        * then reset confirmation state
        */
+      this.api.tooltip.show(this.nodes.button, this.api.i18n.t('Delete exactly?'));
+      this.api.tooltip.onHover(this.nodes.button, this.api.i18n.t('Delete exactly?'));
       this.api.events.on('block-settings-closed', this.resetConfirmation);
     } else {
       /**

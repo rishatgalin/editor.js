@@ -215,7 +215,7 @@ export default class Toolbox extends Module<ToolboxNodes> {
     const button = $.make('li', [ this.CSS.toolboxButton ]);
 
     button.dataset.tool = toolName;
-    button.innerHTML = (userToolboxSettings && userToolboxSettings.icon) || toolToolboxSettings.icon;
+    button.innerHTML = `${(userToolboxSettings && userToolboxSettings.icon) || toolToolboxSettings.icon}<span>${(userToolboxSettings && userToolboxSettings.title) || toolToolboxSettings.title}</span>`;
 
     $.append(this.nodes.toolbox, button);
 
@@ -234,10 +234,10 @@ export default class Toolbox extends Module<ToolboxNodes> {
      */
     const tooltipContent = this.drawTooltip(toolName);
 
-    this.Editor.Tooltip.onHover(button, tooltipContent, {
-      placement: 'bottom',
-      hidingDelay: 200,
-    });
+    // this.Editor.Tooltip.onHover(button, tooltipContent, {
+    //   placement: 'bottom',
+    //   hidingDelay: 200,
+    // });
 
     const shortcut = this.getToolShortcut(toolName, tool);
 

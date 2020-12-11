@@ -12,3 +12,7 @@ yarn-error.log
 
 test/cypress/screenshots
 test/cypress/videos
+package-lock.json
+dist/editor.js
+dist/editor.js.map
+dist/editor.licenses.txt

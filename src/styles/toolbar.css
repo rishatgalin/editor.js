@@ -40,8 +40,17 @@
     @apply --toolbox-button;
 
     position: absolute;
-    left: calc(var(--toolbox-buttons-size) * -1);
+    left: calc((var(--toolbox-buttons-size) * -1) - 16px) ;
     flex-shrink: 0;
+    top: 50%;
+    opacity: 0.24;
+
+    &:hover { opacity: 1; }
+
+    & > svg {
+      will-change: transform;
+      transition: transform .1s ease-in;
+    }
 
     &-shortcut {
       opacity: 0.6;
@@ -60,10 +69,12 @@
     }
   }
 
-  &__plus,
-  .ce-toolbox {
-    top: 50%;
-    transform: translateY(-50%);
+  .codex-editor--toolbox-opened &__plus {
+    opacity: 1;
+
+    & > svg {
+      transform: rotate(45deg);
+    }
   }
 
   /**
